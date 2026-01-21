@@ -73,16 +73,16 @@ resource "aws_security_group" "my_security_group" {
 resource "aws_instance" "web_server" {
   key_name        = aws_key_pair.deployer.key_name
   security_groups = [aws_security_group.my_security_group.name]
-  instance_type   = "t2.micro"
-  ami             = "ami-019715e0d74f695be"
+  instance_type   = var.instance_type
+  ami             = var.aws_ami_id
 
   root_block_device {
-    volume_size = 8
+    volume_size = var.instance_root_size
     volume_type = "gp3"
   }
 
   tags = {
-    Name = "WebServerInstance"
+    Name = var.ec2_name
   }
 }
 
