@@ -11,7 +11,7 @@
  */
 
 
-
+/* 
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "cws-terraform-example-bucket"
 
@@ -19,4 +19,4 @@ resource "aws_s3_bucket" "my_bucket" {
     Name        = "My bucket"
     Environment = "Dev"
   }
-}
+} */
