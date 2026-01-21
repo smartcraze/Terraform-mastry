@@ -20,6 +20,8 @@ resource "aws_security_group" "my_security_group" {
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = aws_default_vpc.default.id
 
+
+
   # inbound rule 
   ingress {
     from_port   = 443
@@ -75,6 +77,7 @@ resource "aws_instance" "web_server" {
   security_groups = [aws_security_group.my_security_group.name]
   instance_type   = var.instance_type
   ami             = var.aws_ami_id
+  user_data       = file("install_nginx.sh")
 
   root_block_device {
     volume_size = var.instance_root_size
