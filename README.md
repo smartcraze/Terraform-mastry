@@ -48,6 +48,11 @@ terraform apply
 terraform apply plan.tfplan
 ```
 
+
+## autoaprove
+
+terraform apply -auto-approve
+
 ### destroy
 
 ```
